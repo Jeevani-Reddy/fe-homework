@@ -1,0 +1,19 @@
+.contentWrapper {
+    padding: 15px;
+}
+
+.header {
+    font-size: 36px;
+    font-weight: 900;
+    padding-bottom: 30px;
+}
+
+.contentContainer {
+    padding: 20px 10px 10px;
+    width: 40%;
+    border: 2px solid #000;
+}
+
+.btnWrapper {
+    padding-top: 30px;
+}

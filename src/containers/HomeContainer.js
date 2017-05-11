@@ -1,13 +1,15 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actions';
 import HomeComponent from '../components/HomeComponent'
+import SidePaneComponent from '../components/SidePaneComponent'
 
-class HomeContainer extends Component{
-	render(){
-		return(
-			<div>
+class HomeContainer extends Component {
+	render() {
+		return (
+			<div className='itemsContainer'>
+				<SidePaneComponent />
 				<HomeComponent />
 			</div>
 		);
