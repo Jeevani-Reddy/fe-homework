@@ -1,26 +1,26 @@
 body {
-    margin: 0;
-    display: block;
+  margin: 0;
+  display: block;
 }
 
 html {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .btnStyles {
-    appearance: none;
-    background: #ccc;
-    margin-right: 20px;
-    font-size: 16px;
-    font-weight: 600;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    border: 1px solid #000;
+  appearance: none;
+  background: #ccc;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  border: 1px solid #000;
 }
 
 .itemsContainer {
-    display: flex;
+  display: flex;
 }
 
 .w100p {
-    width: 100%;
+  width: 100%;
 }

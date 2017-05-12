@@ -1,18 +1,21 @@
+/*eslint-disable no-unused-vars */
 import React from 'react'
-import '../styles/header.css'
 import { Link } from 'react-router'
+/*eslint-enable no-unused-vars */
 
-const HeaderComponent = (props) => (
-	<div className="headerContainer">
-		<div className='headerDetails'>
+import '../styles/header.css'
+
+const HeaderComponent = (props) => ( //eslint-disable-line no-unused-vars
+  <div className="headerContainer">
+    <div className='headerDetails'>
 			<div>
-				<div>Jeevani Reddy</div>
-				<Link to='/logout'>
-					Logout
-				</Link>
+        <div>Jeevani Reddy</div>
+          <Link to='/logout'>
+            Logout
+          </Link>
+        </div>
+				<img className='imgStyles' alt='' src='' />
 			</div>
-			<img className='imgStyles' alt='' src='' />
-		</div>
 	</div>
 )
 

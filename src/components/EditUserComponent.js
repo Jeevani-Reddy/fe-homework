@@ -1,90 +1,92 @@
+/*eslint-disable no-unused-vars */
 import React, { Component } from 'react'
 import HeaderComponent from './HeaderComponent'
-import '../styles/createUser.css'
 import Input from '../components/InputComponent'
+/*eslint-enable no-unused-vars */
+import '../styles/createUser.css'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/actions'
 
 class EditUserComponent extends Component {
 
-	constructor() {
-		super()
-		this.state = {
-			firstName: '',
-			lastName: '',
-			email: '',
-			isSaved: false,
-			disabled: true
-		}
-		this.userId = 0
-		this.user = {}
-		this.saveOrCreateUser = this.saveOrCreateUser.bind(this)
-		this.onChangeFirstName = this.onChangeFirstName.bind(this)
-		this.onChangeLastName = this.onChangeLastName.bind(this)
-		this.onChangeEmail = this.onChangeEmail.bind(this)
-		this.enableSave = this.enableSave.bind(this)
-	}
+  constructor() {
+    super()
+    this.state = {
+      firstName: '',
+      lastName: '',
+      email: '',
+      isSaved: false,
+      disabled: true
+    }
+    this.userId = 0
+    this.user = {}
+    this.saveOrCreateUser = this.saveOrCreateUser.bind(this)
+    this.onChangeFirstName = this.onChangeFirstName.bind(this)
+    this.onChangeLastName = this.onChangeLastName.bind(this)
+    this.onChangeEmail = this.onChangeEmail.bind(this)
+    this.enableSave = this.enableSave.bind(this)
+  }
 
-	componentWillMount() {
-		const locationStringArr = window.location.pathname.split('/')
-		const lastString = locationStringArr[locationStringArr.length - 1]
-		const regEx = /^\d+$/
-		if (regEx.test(lastString)) {
-			this.userId = parseInt(lastString)
-			let user = this.props.data.home.users.filter(user => user.id === this.userId)
-			this.user = user[0]
-			this.setState({
-				firstName: user[0].firstName,
-				lastName: user[0].lastName,
-				email: user[0].email
-			})
-		}
-		this.enableSave()
-	}
+  componentWillMount() {
+    const locationStringArr = window.location.pathname.split('/')
+    const lastString = locationStringArr[locationStringArr.length - 1]
+    const regEx = /^\d+$/
+    if (regEx.test(lastString)) {
+      this.userId = parseInt(lastString)
+      let user = this.props.data.home.users.filter(user => user.id === this.userId)
+      this.user = user[0]
+      this.setState({
+        firstName: user[0].firstName,
+        lastName: user[0].lastName,
+        email: user[0].email
+      })
+    }
+    this.enableSave()
+  }
 
-	onChangeFirstName(value) {
-		this.setState({
-			firstName: value
-		})
-		this.enableSave()
-	}
+  onChangeFirstName(value) {
+    this.setState({
+      firstName: value
+    })
+    this.enableSave()
+  }
 
-	onChangeLastName(value) {
-		this.setState({
-			lastName: value
-		})
-		this.enableSave()
-	}
+  onChangeLastName(value) {
+    this.setState({
+      lastName: value
+    })
+    this.enableSave()
+  }
 
-	onChangeEmail(value) {
-		this.setState({
-			email: value
-		})
-		this.enableSave()
-	}
+  onChangeEmail(value) {
+    this.setState({
+      email: value
+    })
+    this.enableSave()
+  }
 
-	enableSave() {
-		if(this.state.firstName && this.state.lastName && this.state.email) {
-			this.setState({
-				disabled: false
-			})
-		}
-	}
+  enableSave() {
+    if(this.state.firstName && this.state.lastName && this.state.email) {
+      this.setState({
+        disabled: false
+      })
+    }
+  }
 
-	saveOrCreateUser() {
-		this.setState({
-			isSaved: true
-		})
-		if (this.userId) {
-			this.props.updateUser(this.userId, this.state.firstName, this.state.lastName, this.state.email)
-		} else {
-			this.props.createUser(this.state.firstName, this.state.lastName, this.state.email)
-		}
-	}
+  saveOrCreateUser() {
+    this.setState({
+      isSaved: true
+    })
+    if (this.userId) {
+      this.props.updateUser(this.userId, this.state.firstName, this.state.lastName, this.state.email)
+    } else {
+      this.props.createUser(this.state.firstName, this.state.lastName, this.state.email)
+    }
+  }
 
-	render() {
-		return (
+  render() {
+    return (
 			<div className='w100p'>
 				<HeaderComponent />
 				<div className='formContainer'>
@@ -139,7 +141,7 @@ class EditUserComponent extends Component {
 				}
 			</div>
 		)
-	}
+  }
 }
 
 let mapStateToProps = (state) => ({ data: state })

@@ -1,37 +1,37 @@
 .sidePaneContainer {
-    width: 300px;
-    border-right: 1px solid #ccc;
+  width: 300px;
+  border-right: 1px solid #ccc;
 }
 
 .appName {
-    height: 64px;
-    display: flex;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    align-items: center;
-    padding-left: 20px;
+  height: 64px;
+  display: flex;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+  padding-left: 20px;
 }
 
 .bgColor {
-    background: #eee;
-    height: 30px;
-    font-size: 18px;
-    padding: 5px;
+  background: #eee;
+  height: 30px;
+  font-size: 18px;
+  padding: 5px;
 }
 
 .removeListcss {
-    list-style: none;
+  list-style: none;
 }
 
 .category {
-    height: 200px;
-    padding-top: 10px;
+  height: 200px;
+  padding-top: 10px;
 }
 
 .imgContainer {
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
 }

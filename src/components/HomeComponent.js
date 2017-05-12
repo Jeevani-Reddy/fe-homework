@@ -1,9 +1,11 @@
+/*eslint-disable no-unused-vars */
 import React from 'react'
 import HeaderComponent from './HeaderComponent'
-import '../styles/home.css'
 import { Link } from 'react-router'
+/*eslint-enable no-unused-vars */
+import '../styles/home.css'
 
-const HomeComponent = (props) => (
+const HomeComponent = (props) => ( //eslint-disable-line no-unused-vars
 	<div className='w100p'>
 		<HeaderComponent />
 		<div className='contentWrapper'>

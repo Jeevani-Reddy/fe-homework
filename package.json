@@ -25,6 +25,7 @@
     "css-loader": "0.25.0",
     "detect-port": "1.0.1",
     "dotenv": "2.0.0",
+    "enzyme": "^2.8.2",
     "eslint": "3.8.1",
     "eslint-config-react-app": "^0.3.0",
     "eslint-loader": "1.6.0",
@@ -42,7 +43,7 @@
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.2",
     "jeet": "^7.0.0",
-    "jest": "16.0.2",
+    "jest": "^16.0.2",
     "json-loader": "0.5.4",
     "literalify": "^0.4.0",
     "node-sass": "^3.10.1",
@@ -52,6 +53,7 @@
     "path-exists": "2.1.0",
     "postcss-loader": "1.0.0",
     "promise": "7.1.1",
+    "prop-types": "^15.5.9",
     "react-addons-test-utils": "^15.3.2",
     "react-dev-utils": "^0.3.0",
     "recursive-readdir": "2.1.0",
@@ -72,7 +74,6 @@
     "i18nliner": "^0.1.6",
     "jquery": "^3.1.1",
     "jsdom": "^9.8.3",
-    "prop-types": "^15.5.9",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-modal": "^1.5.2",
@@ -86,7 +87,8 @@
   },
   "scripts": {
     "start": "node scripts/start.js",
-    "dev": "npm run build-css && npm run start"
+    "dev": "npm run build-css && npm run start",
+    "test": "jest --coverage"
   },
   "babel": {
     "presets": [
@@ -96,5 +98,22 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "^.*[.](jpg|JPG|gif|GIF|png|PNG|less|LESS|css|CSS)$": "EmptyModule"
+    },
+    "preprocessorIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "collectCoverageFrom" : ["**/*.{js,jsx}", "!**/node_modules/**"],
+    "collectCoverage": true,
+    "coverageReporters": ["html"]
   }
 }

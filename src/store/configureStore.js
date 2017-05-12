@@ -11,7 +11,7 @@ const enhancers = compose(
 )
 
 const configureStore = preloadedState => {
-	const store = createStore(
+  const store = createStore(
 		rootReducer,
 		preloadedState,
 		compose(
@@ -19,7 +19,7 @@ const configureStore = preloadedState => {
 			enhancers
 		)
 	)
-	return store
+  return store
 }
 
 export default configureStore
