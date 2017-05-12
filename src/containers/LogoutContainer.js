@@ -5,8 +5,8 @@ class LogoutContainer extends Component {
 
 	render() {
 		return (
-            <LogoutComponent />
-		);
+			<LogoutComponent />
+		)
 	}
 }
 

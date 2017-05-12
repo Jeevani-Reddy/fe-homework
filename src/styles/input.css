@@ -1,0 +1,13 @@
+.inputError {
+    border: 1px solid red;
+}
+
+.nameInput {
+    width: 100%;
+    line-height: 18px;
+}
+
+.inValid {
+    color: red;
+    font-size: 12px;
+}

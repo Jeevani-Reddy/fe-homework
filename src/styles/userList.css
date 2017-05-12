@@ -17,3 +17,7 @@
 .btnWrapper {
     padding-top: 30px;
 }
+
+.listStyles {
+    list-style: none;
+}
