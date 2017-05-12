@@ -24,4 +24,4 @@ let routes= (
     </Provider>
 );
 
-export default routes;
+export default routes

@@ -14,30 +14,43 @@ class CreateUserComponent extends Component {
 		this.state = {
 			firstName: '',
 			lastName: '',
-			email: ''
+			email: '',
+			disabled: true
 		}
 		this.createUser = this.createUser.bind(this)
 		this.onChangeFirstName = this.onChangeFirstName.bind(this)
 		this.onChangeLastName = this.onChangeLastName.bind(this)
 		this.onChangeEmail = this.onChangeEmail.bind(this)
+		this.enableCreate = this.enableCreate.bind(this)
 	}
 
 	onChangeFirstName (value) {
 		this.setState({
 			firstName: value
 		})
+		this.enableCreate()
 	}
 
 	onChangeLastName (value) {
 		this.setState({
 			lastName: value
 		})
+		this.enableCreate()
 	}
 
 	onChangeEmail (value) {
 		this.setState({
 			email: value
 		})
+		this.enableCreate()
+	}
+
+	enableCreate() {
+		if(this.state.firstName && this.state.lastName && this.state.email) {
+			this.setState({
+				disabled: false
+			})
+		}
 	}
 
 	createUser () {
@@ -69,7 +82,7 @@ class CreateUserComponent extends Component {
 								<Input type='email' onChange={this.onChangeEmail} />
 							</div>
 						</div>
-						<button className='btnStyles' onClick={this.createUser}>Create User</button>
+						<button className='btnStyles' disabled={this.state.disabled} onClick={this.createUser}>Create User</button>
 					</div>
 				</div>
 				<UserListComponent users={this.props.data.home.users} />

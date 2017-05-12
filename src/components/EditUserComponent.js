@@ -14,7 +14,8 @@ class EditUserComponent extends Component {
 			firstName: '',
 			lastName: '',
 			email: '',
-			isSaved: false
+			isSaved: false,
+			disabled: true
 		}
 		this.userId = 0
 		this.user = {}
@@ -22,9 +23,10 @@ class EditUserComponent extends Component {
 		this.onChangeFirstName = this.onChangeFirstName.bind(this)
 		this.onChangeLastName = this.onChangeLastName.bind(this)
 		this.onChangeEmail = this.onChangeEmail.bind(this)
+		this.enableSave = this.enableSave.bind(this)
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		const locationStringArr = window.location.pathname.split('/')
 		const lastString = locationStringArr[locationStringArr.length - 1]
 		const regEx = /^\d+$/
@@ -32,25 +34,42 @@ class EditUserComponent extends Component {
 			this.userId = parseInt(lastString)
 			let user = this.props.data.home.users.filter(user => user.id === this.userId)
 			this.user = user[0]
+			this.setState({
+				firstName: user[0].firstName,
+				lastName: user[0].lastName,
+				email: user[0].email
+			})
 		}
+		this.enableSave()
 	}
 
 	onChangeFirstName(value) {
 		this.setState({
 			firstName: value
 		})
+		this.enableSave()
 	}
 
 	onChangeLastName(value) {
 		this.setState({
 			lastName: value
 		})
+		this.enableSave()
 	}
 
 	onChangeEmail(value) {
 		this.setState({
 			email: value
 		})
+		this.enableSave()
+	}
+
+	enableSave() {
+		if(this.state.firstName && this.state.lastName && this.state.email) {
+			this.setState({
+				disabled: false
+			})
+		}
 	}
 
 	saveOrCreateUser() {
@@ -101,21 +120,23 @@ class EditUserComponent extends Component {
 								/>
 							</div>
 						</div>
-						<button className='btnStyles' onClick={this.saveOrCreateUser}>Save User</button>
+						<button className='btnStyles' disabled={this.state.disabled} onClick={this.saveOrCreateUser}>
+							Save User
+						</button>
 					</div>
 				</div>
-				<div className='contentWrapper'>
-					<div className='header'>
-						List of Saved Users
-					</div>
-					<div className='contentContainer'>
-						{
-							this.state.isSaved ? <ul className='listStyles'>
+				{
+					this.state.isSaved ? <div className='contentWrapper'>
+						<div className='header'>
+							List of Saved Users
+						</div>
+						<div className='contentContainer'>
+							<ul className='listStyles'>
 								{this.state.firstName} {this.state.lastName}
-							</ul> : ''
-						}
-					</div>
-				</div>
+							</ul>
+						</div>
+					</div> : ''
+				}
 			</div>
 		)
 	}

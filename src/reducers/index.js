@@ -5,6 +5,6 @@ import HomeReducer from './homeReducer'
 const rootReducer = combineReducers({    
     home: HomeReducer,
     routing
-});
+})
 
 export default rootReducer

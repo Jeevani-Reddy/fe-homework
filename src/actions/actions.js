@@ -1,10 +1,3 @@
-let requestUsersList = () => ({type: 'REQUEST_USERS_LIST'})
-
-let receiveUsersListResponse = (users) => ({
-    type: 'RECEIVE_USERS_LIST_RESPONSE',
-    users: users
-})
-
 let requestCreateUser = () => ({type: 'REQUEST_CREATE_USER'})
 
 let receiveCreateUserResponse = (users) => ({
@@ -18,14 +11,6 @@ let receiveUpdateUserResponse = (users) => ({
     type: 'RECEIVE_UPDATE_USER_RESPONSE',
     users: users
 })
-
-export function getUsers(){
-        return function(dispatch,getState) {
-            dispatch(requestUsersList())
-            let users = getState().home.users
-            dispatch(receiveUsersListResponse(users))
-        }
-    }
 
 export function createUser(firstName, lastName, email){
         return function(dispatch,getState) {

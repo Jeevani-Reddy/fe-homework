@@ -11,4 +11,4 @@ var _APP_INFO = {
 ReactDOM.render(
   routes,
   document.getElementById('root')
-);
+)
